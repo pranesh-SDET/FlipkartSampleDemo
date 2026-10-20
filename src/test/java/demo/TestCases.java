@@ -74,7 +74,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-// import io.github.bonigarcia.wdm.WebDriverManager;
 import demo.wrappers.Wrappers;
 
 public class TestCases {
@@ -163,13 +162,13 @@ public class TestCases {
         Thread.sleep(3000);
 
         // Filter by 4★ & above
-        Wrappers.clickOnElementWapper(driver, By.xpath("//div[contains(text(),'4★ & above')]"));
+        Wrappers.clickOnElementWapper(driver, By.xpath("//div[contains(text(),'4') and contains(text(),'above')]"));
         Thread.sleep(3000);
 
         // Extract top 5 review count products with titles and image URLs
         Boolean status = Wrappers.printTitleAndImageUrlOfCoffeeMug(
                 driver,
-                By.xpath("//div[contains(@class,'slAVV4')]//span[contains(text(),'(')] | //span[contains(@class,'Wphh3N')] | //span[contains(text(),'(')]"));
+                By.xpath("//div[contains(@class,'slAVV4')]//span[contains(text(),'(')] | //span[contains(@class,'Wphh3N')]"));
         Assert.assertTrue(status);
 
         System.out.println("Ending Test Case 03");
